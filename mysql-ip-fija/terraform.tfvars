@@ -1,0 +1,7 @@
+rpi_ip       = "192.168.1.100"
+rpi_netmask  = "24"
+rpi_gateway  = "192.168.1.1"
+rpi_dns      = "8.8.8.8"
+ssh_user     = "pi"
+ssh_private_key = "~/.ssh/id_rsa"
+compose_dir  = "/home/pi/mysql-server"
