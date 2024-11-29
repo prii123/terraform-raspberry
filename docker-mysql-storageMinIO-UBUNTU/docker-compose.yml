@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  minio:
+    image: minio/minio:latest
+    container_name: minio_server
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=unaPruebaUbuntu123*
+    ports:
+      - "9000:9000" # Interfaz web
+      - "9001:9001" # Consola administrativa
+    volumes:
+      - ./storage:/data # Cambia ./storage al directorio donde quieras guardar los datos
+    command: server /data --console-address ":9001"
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_server
+    environment:
+      - MYSQL_ROOT_PASSWORD=unaPruebaUbuntu123*
+      - MYSQL_DATABASE=visionartificial
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=unaPruebaUbuntu123*
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql_data:/var/lib/mysql # Cambia ./mysql_da
